@@ -150,6 +150,7 @@ int QHttpConnection::HeadersComplete(http_parser *parser)
 
     connect(theConnection, SIGNAL(destroyed()), response, SLOT(connectionClosed()));
     connect(response, SIGNAL(done()), theConnection, SLOT(responseDone()));
+    connect(response, SIGNAL(destroyed()), theConnection, SLOT(deleteLater()));
 
     // we are good to go!
     emit theConnection->newRequest(theConnection->m_request, response);
