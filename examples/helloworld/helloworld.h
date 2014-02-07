@@ -1,8 +1,11 @@
 #include "qhttpserverfwd.h"
 
 #include <QObject>
+#include <QTimer>
 
 /// HelloWorld
+
+class QHttpResponse;
 
 class HelloWorld : public QObject
 {
@@ -13,4 +16,9 @@ public:
 
 private slots:
     void handleRequest(QHttpRequest *req, QHttpResponse *resp);
+    void sendResponse();
+
+private:
+    QTimer m_timer;
+    QHttpResponse* m_resp;
 };
