@@ -16,9 +16,7 @@ public:
 
 private slots:
     void handleRequest(QHttpRequest *req, QHttpResponse *resp);
-    void sendResponse();
 
 private:
     QTimer m_timer;
-    QHttpResponse* m_resp;
 };
